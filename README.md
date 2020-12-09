@@ -1,1 +1,1 @@
-# game
+Just a hobby project for experience, made with the help of resources around the Internet.
