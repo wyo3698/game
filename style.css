@@ -85,26 +85,31 @@ html {
     font-family: 'Langar', cursive;
     text-align: center;
   }
+  #main-content div{
+    margin: auto;
+  }
   #title {
-    font-size: 80px;
+    text-align: center;
+    font-size: 4em;
     margin-bottom: 0px;
   }
   .desc {
-    font-size: 30px;
+    font-size: 2em;
   }
   #cta {
     opacity: 0;
     margin: 20px 0 80px 0;
-    font-size: 40px;
+    font-size: 2em;
     transform: translateY(-150px);
   }
   #btn-container {
     display: flex;
     justify-content: center;
+    padding: 0 10vw;
   }
   .button {
-    width: 200px;
-    height: 200px;
+    width: 15vw;
+    height: 25vh;
     border: 1px solid white;
     margin: 0 25px;
     display: flex;
@@ -113,8 +118,42 @@ html {
     transition: all 0.4s ease;
   }
   .button img {
-    width: 150px;
+    width: 10vw;
+    height: 20vh;
   }
+  @media only screen and (max-width: 1000px) {
+    .button {
+      width: 25vw;
+      height: 25vh;
+      border: 1px solid white;
+      margin: 0 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.4s ease;
+    }
+    .button img {
+      width: 10vw;
+      height: 20vh;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .button {
+      width: 25vw;
+      height: 15vh;
+      border: 1px solid white;
+      margin: 0 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.4s ease;
+    }
+    .button img {
+      width: 15vw;
+      height: 10vh;
+    }
+  }
+  
   .button:hover {
     cursor: pointer;
     transform: scale(1.1);
@@ -176,6 +215,7 @@ html {
   #game-container {
     opacity: 0;
     pointer-events: none;
+    width: 100vw;
   }
   span {
     opacity: 0;
