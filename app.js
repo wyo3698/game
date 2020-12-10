@@ -217,11 +217,11 @@ function declareWinner() {
   if (playerScore > computerScore) {
     endDesc.textContent = "You win! Mankind lives another day!!";
     returnMainBtn.innerText = "Play Again";
-    document.getElementById("retry-btn").style.cursor = "url(images/luffy.png), pointer";
+    document.getElementById("retry-btn").style.cursor = "url(images/rem.png), pointer";
   } else {
     endDesc.textContent = "You lost...who will save mankind now?";
     returnMainBtn.innerText = "Try Again?";
-    document.getElementById("retry-btn").style.cursor = "url(images/naruto.png), pointer";
+    document.getElementById("retry-btn").style.cursor = "url(images/luffy.png), pointer";
   }
   fadeIn();
 
