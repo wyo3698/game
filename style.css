@@ -196,8 +196,8 @@ html, body{
     text-transform: uppercase;
     font-weight: bold;
     margin: 20px;
-    width: 80rem;
-    height: 50rem;
+    width: 50rem;
+    height: 30rem;
 }
 
 .playerinformation {
@@ -245,8 +245,8 @@ html, body{
     align-items: center;
     background-color: white;
     border-radius: 10px;
-    width: 20rem;
-    height: 20rem;
+    width: 10rem;
+    height: 11rem;
     margin: 3rem;
     border-radius: 3px;
     box-shadow: 4px 5px 0px black;
@@ -269,8 +269,8 @@ html, body{
 }
 
 .selection {
-    height: 15rem;
-    width: 15rem;
+    height: 7rem;
+    width: 7rem;
 }
 
 .gameselectiontext {
