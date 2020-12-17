@@ -1,65 +1,99 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <title>Jian Dao, Shi Tou, Bu</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lacquer&family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="shortcut icon" href="/images/favicon.ico">
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8">
+    <title>It's super-effective!</title>
+    <meta name="author" content="Tom McErlean">
+    <meta name="description" content="Starter type effectiveness tutorial">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="style.css" rel="stylesheet">
+    <script type="text/javascript" src="tweenmax.js"></script>
+    <script type="text/javascript" src="createjs.js"></script>
 </head>
+
 <body>
+    <canvas id="projector"></canvas>
     
-<div id='stars'></div>
-<div id='stars2'></div>
-<div id='stars3'></div>
-<main id="main-content">
-    <audio src="audio.wav" width="0" height="0" autoplay loop></audio>
-    <h1 id="title">Man vs Machine</h1>
-    <p class="desc animate" id="desc1">
-      The human rule is coming to an end...
-    </p>
-    <p class="desc disappear" id="desc2">
-      Unless you can defeat the AI captain in a match...
-    </p>
-    <p class="desc disappear" id="desc3">
-      A classic best of 5 rock, paper, scissors!
-    </p>
-    <p id="cta">Make your choice!</p>
-    <div id="game-container">
-      <div id="btn-container">
-        <div id="rock" class="button">
-          <img src="images/rock.png" alt="Rock" />
-        </div>
-        <div id="paper" class="button">
-          <img src="images/paper.png" alt="Paper" />
-        </div>
-        <div id="scissors" class="button">
-          <img src="images/scissors.png" alt="Scissors" />
-        </div>
-      </div>
-      <div id="score-label">
-        <div>
-        <p class="label">you</p>
-      </div>
-      <div>
-        <p class="label">computer</p>
-      </div>
-      </div>
-      <div id="score-container">
-        <div id="player-score" class="score">0</div>
-        <div id="computer-score" class="score">0</div>
-      </div>
-      <div id="results-container"></div>
+    <audio id="startbuttonsound" src="sounds/start.mp3"></audio>
+    <audio id="winnersound" src="sounds/wow.mp3"></audio>
+    <audio id="losersound" src="sounds/loser.mp3"></audio>
+    <audio id="clicksound" src="sounds/click.mp3"></audio>
+    <audio id="drawsound" src="sounds/draw.mp3"></audio>
+    <audio id="bumpsound" src="sounds/bump.mp3"></audio>
+    <audio src="sounds/battle.mp3" autoplay height="0" width="0" loop id="battlemusic"></audio>
+    <div class="container" id="startcontainer">
+        <div class="box" id="startbutton"></div>
     </div>
-  </main>
-  <div id="end-alert" class="disappear">
-    <div id="end-desc"></div>
-    <a id="retry-btn"></a>
-  </div>
-  <script src="app.js"></script>
+    <script src="main.js"></script>
+    <script src="animation.js"></script>
+    <div class="container" id="endcontainer">
+        <div class="topcontainer">
+            <h1 id="gameh1"></h1>
+        </div>
+        <div class="gamecontainer">
+            <div class="playercontainer">
+                <h1 class="playerh1">Red</h1>
+                <div class="playerinformation">
+                    <div class="playerlogo">
+                        <img class="logo" src="images/ash.png">
+                    </div>
+                    <div class="playerscore">
+                        <p class="score" id="playerscore">Score: 0</p>
+                    </div>
+                </div>
+                <div class="gameselections">
+                    <div class="gameselection" id="rockdiv">
+                        <p class="gameselectiontext" id="rockselection">Grass</p>
+                        <img class="selection" id ="rockimg" src="images/venusaur.png">
+                    </div>
+                    <div class="gameselection" id="paperdiv">
+                        <p class="gameselectiontext" id="paperselection">Fire</p>
+                        <img class="selection" id="paperimg" src="images/charizard.png">
+                    </div>
+                    <div class="gameselection" id="scissorsdiv">
+                        <p class="gameselectiontext" id="scissorsselection">Water</p>
+                        <img class="selection" id="scissorsimg" src="images/blastoise.png">
+                    </div>
+                </div>
+            </div>
+            <div class="playercontainer">
+                <h1 class="playerh1">Blue</h1>
+                <div class="playerinformation">
+                    <div class="playerlogo">
+                        <img class="logo" src="images/gary.png">
+                    </div>
+                    <div class="playerscore">
+                        <p class="score" id="computerscore">Score: 0</p>
+                    </div>
+                </div>
+                <div class="gameselections">
+                    <div class="gameselection" id="computerrockdiv">
+                        <p class="gameselectiontext">Grass</p>
+                        <img class="selection" src="images/venusaur.png">
+                    </div>
+                    <div class="gameselection" id="computerpaperdiv">
+                        <p class="gameselectiontext">Fire</p>
+                        <img class="selection" src="images/charizard.png">
+                    </div>
+                    <div class="gameselection" id="computerscissorsdiv">
+                        <p class="gameselectiontext">Water</p>
+                        <img class="selection" src="images/blastoise.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottomcontainer" id="bottomcontainer">
+            <div class="winninglogodiv">
+                <img class="winninglogo" id="userwinslogo" src="images/ash.png">
+                <img class="winninglogo" id="robotwinslogo" src="images/gary.png">
+            </div>
+            <p class="gameupdates"></p>
+            <a href="index.html" id="endbutton">Play Again</button>
+        </div>
+    </div>
+</body>
 </html>
+

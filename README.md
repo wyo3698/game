@@ -1,1 +1,2 @@
-Just a hobby project for experience, made with the help of resources around the Internet.
+# grass-fire-water
+A variant of rock paper scissors, built with JavaScript. Built using multiple resources found online.
