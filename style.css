@@ -232,6 +232,8 @@ html, body{
 
 .playerscore {
     color: white;
+    padding-left: 3rem;
+    font-size: 2rem;
 }
 
 .gameselections {
@@ -247,7 +249,7 @@ html, body{
     border-radius: 10px;
     width: 10rem;
     height: 11rem;
-    margin: 3rem;
+    margin: 1rem;
     border-radius: 3px;
     box-shadow: 4px 5px 0px black;
     border-bottom: 2px solid;

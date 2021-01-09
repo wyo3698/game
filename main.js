@@ -14,25 +14,32 @@ function typeWriter() {
 
 // Function to play main button audio on click
 function playSound() {
-    const buttonPress = document.querySelector("#startbuttonsound");
+    const buttonPress = document.querySelector("#battlemusic");
     buttonPress.play();
 }
 
 mainButton = document.querySelector("#startbutton").addEventListener("click", playSound);
 
+const click = document.querySelector("#clicksound");
+const draw = document.querySelector("#drawsound");
+const bump = document.querySelector("#bumpsound");
+
 function playClick(){
-    const click = document.querySelector("#clicksound");
     click.play();
+    draw.stop();
+    bump.stop();
 }
 
 function playDraw(){
-    const draw = document.querySelector("#drawsound");
     draw.play();
+    click.stop();
+    bump.stop();
 }
 
 function playBump(){
-    const bump = document.querySelector("#bumpsound");
     bump.play();
+    click.stop();
+    bump.stop();
 }
 
 function stopBattleMusic(){
@@ -88,6 +95,24 @@ let playerScore = 0;
 let computerScore = 0;
 // Initialise games played to zero
 let gamesPlayed = 0;
+
+//Don't allow spam clicks
+// function stopSpam(){
+//     document.getElementById("rockdiv").style.pointerEvents = none;
+//     document.getElementById("paperdiv").style.pointerEvents = none;
+//     document.getElementById("scissorsdiv").style.pointerEvents = none;
+//     setTimeout(function() {
+//         document.getElementById("rockdiv").style.pointerEvents = auto;
+//     }, 5000);
+//     setTimeout(function() {
+//         document.getElementById("paperdiv").style.pointerEvents = auto;
+//     }, 5000);
+//     setTimeout(function() {
+//         document.getElementById("scissorsdiv").style.pointerEvents = auto;
+//     }, 5000);
+    
+// }
+
 
 // Event listener for click
 document.addEventListener("click", gameSelectionListener);
